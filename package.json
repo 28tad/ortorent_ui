@@ -1,6 +1,8 @@
 {
   "scripts": {
-    "start": "webpack serve"
+    "start": "webpack serve --ent port=3000",
+    "build:prod": "webpack --env mode=production",
+    "build:dev": "webpack --env mdoe=development" 
   },
   "devDependencies": {
     "@types/node": "^20.4.2",
