@@ -2,6 +2,18 @@ import { RuleSetRule} from 'webpack';
 
 export function buildLoaders(): RuleSetRule[] {
 
+    const cssLoader = {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+            "style-loader",
+          // Translates CSS into CommonJS
+            "css-loader",
+          // Compiles Sass to CSS
+            "sass-loader",
+        ],
+    }
+
     const typescriptLoader = {
         test: /\.tsx?$/,
         use: 'ts-loader',
@@ -10,6 +22,7 @@ export function buildLoaders(): RuleSetRule[] {
 
     // the sequence of plugins is important!
     return [
-        typescriptLoader
+        typescriptLoader,
+        cssLoader
     ]
 }
